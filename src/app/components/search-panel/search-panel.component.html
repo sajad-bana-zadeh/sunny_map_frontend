@@ -1,0 +1,39 @@
+<div class="search-panel" [class.expanded]="isExpanded">
+  <button class="toggle-btn" (click)="togglePanel()">
+    {{ isExpanded ? '◀' : '▶' }} Search
+  </button>
+  
+  <div class="panel-content" *ngIf="isExpanded">
+    <h5>Find Closest Point</h5>
+    <p class="instructions">Click on the map to select a location, then search for the closest point with your criteria.</p>
+    
+    <div class="form-group">
+      <label>Product Name</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="productName"
+        placeholder="e.g., Laptop Pro">
+    </div>
+    
+    <div class="form-group">
+      <label>Product Type</label>
+      <select class="form-control" [(ngModel)]="productType">
+        <option value="">All Types</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Appliances">Appliances</option>
+        <option value="Clothing">Clothing</option>
+      </select>
+    </div>
+    
+    <div class="button-group">
+      <button class="btn btn-primary" (click)="onSearch()">
+        🔍 Search
+      </button>
+      <button class="btn btn-secondary" (click)="clearSearch()">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>

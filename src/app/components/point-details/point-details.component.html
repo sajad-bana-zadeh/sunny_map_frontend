@@ -1,0 +1,38 @@
+<div class="details-panel" *ngIf="point" [class.expanded]="isExpanded">
+  <button class="toggle-btn" (click)="togglePanel()">
+    {{ isExpanded ? '▼' : '▲' }} Closest Point Details
+  </button>
+  
+  <div class="panel-content" *ngIf="isExpanded">
+    <h5>{{ point.name }}</h5>
+    
+    <div class="info-section">
+      <strong>Distance:</strong>
+      <span class="distance">{{ point.distance }}</span>
+    </div>
+    
+    <div class="info-section">
+      <strong>Location:</strong>
+      <span>{{ point.latitude.toFixed(4) }}°, {{ point.longitude.toFixed(4) }}°</span>
+    </div>
+    
+    <div class="info-section">
+      <strong>Contact Information:</strong>
+      <div class="contact-info">
+        <div>📧 {{ point.contactInfo.email }}</div>
+        <div>📞 {{ point.contactInfo.phone }}</div>
+      </div>
+    </div>
+    
+    <div class="info-section">
+      <strong>Available Inventory:</strong>
+      <div class="inventory-list">
+        <div class="inventory-item" *ngFor="let item of point.inventory">
+          <span class="product-name">{{ item.productName }}</span>
+          <span class="product-type">({{ item.productType }})</span>
+          <span class="quantity">Qty: {{ item.quantity }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
