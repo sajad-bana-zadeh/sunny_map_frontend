@@ -1,9 +1,14 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import { PointService, Point, DensityData } from '../../services/point.service';
+import { SearchPanelComponent } from '../search-panel/search-panel.component';
+import { PointDetailsComponent } from '../point-details/point-details.component';
 
 @Component({
   selector: 'app-map',
+  standalone: true,
+  imports: [CommonModule, SearchPanelComponent, PointDetailsComponent],
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })

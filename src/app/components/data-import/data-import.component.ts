@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PointService } from '../../services/point.service';
 
 @Component({
   selector: 'app-data-import',
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <div class="import-panel">
       <h5>Import Test Data</h5>
